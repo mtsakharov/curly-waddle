@@ -8,7 +8,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class RegistrationController extends AbstractController
 {
-    #[Route('/registration', name: 'app_registration')]
+    /**
+     * @Route("register")
+     * @return Response
+     */
     public function index(): Response
     {
         return $this->json([
