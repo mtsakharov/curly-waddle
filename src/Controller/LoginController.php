@@ -8,7 +8,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class LoginController extends AbstractController
 {
-    #[Route('/login', name: 'app_login')]
+    /**
+     * @Route("login")
+     *
+     * @return Response
+     */
     public function index(): Response
     {
         return $this->json([
