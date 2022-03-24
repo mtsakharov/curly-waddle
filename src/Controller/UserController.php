@@ -10,11 +10,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class UserController extends AbstractController
 {
-    #[Route('/users', name: 'app_user')]
+    #[Route('/', name: 'users')]
     public function index(UserRepository $userRepository): Response
     {
-        $users = $userRepository->findAll();
-
-        return $this->json(['data' => $users], Response::HTTP_OK);
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        return $this->render('dashboard/dashboard.html.twig');
     }
 }
